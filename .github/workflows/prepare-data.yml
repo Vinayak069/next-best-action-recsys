@@ -21,6 +21,7 @@ jobs:
         run: |
           curl -fL --retry 3 -o retail.zip "https://archive.ics.uci.edu/static/public/502/online+retail+ii.zip"
           unzip -o retail.zip && ls -l
+          set -o pipefail
           python scripts/prepare_retail.py online_retail_II.xlsx out 2>&1 | tee prep.log
       - name: Publish to the data branch
         run: |

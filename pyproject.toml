@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "nba"
+version = "0.1.0"
+description = "Next-best-product recommendation: SASRec vs classical baselines, with offline evaluation and a replay A/B test"
+requires-python = ">=3.10"
+dependencies = ["numpy", "pandas", "pyarrow", "scipy", "torch", "lightgbm", "matplotlib"]
+
+[project.optional-dependencies]
+test = ["pytest"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

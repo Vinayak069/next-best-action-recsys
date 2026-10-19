@@ -14,6 +14,8 @@ def main(xlsx: str, out_dir: str) -> None:
     sheets = pd.read_excel(xlsx, sheet_name=None, dtype={"Invoice": str, "StockCode": str})
     df = pd.concat(sheets.values(), ignore_index=True)
     df.columns = ["invoice", "stock_code", "description", "quantity", "invoice_date", "price", "customer_id", "country"]
+    for col in ["invoice", "stock_code", "description", "country"]:  # Excel cells mix numbers and text
+        df[col] = df[col].astype("string")
     df["customer_id"] = df["customer_id"].astype("Int64")
     df.to_parquet(out / "online_retail_ii.parquet", compression="zstd", index=False)
     print("rows", len(df), "customers", df["customer_id"].nunique(), "items", df["stock_code"].nunique(),
