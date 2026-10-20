@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "nba"
 version = "0.1.0"
-description = "Next-best-product recommendation: SASRec vs classical baselines, with offline evaluation and a replay A/B test"
+description = "Next-basket recommendation: a basket Transformer vs classical baselines, with offline evaluation and a replay A/B test"
 requires-python = ">=3.10"
 dependencies = ["numpy", "pandas", "pyarrow", "scipy", "torch", "lightgbm", "matplotlib"]
 

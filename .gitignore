@@ -4,3 +4,5 @@ __pycache__/
 data/
 *.xlsx
 *.zip
+build/
+*.egg-info/
